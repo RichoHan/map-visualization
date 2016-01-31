@@ -38,3 +38,25 @@ var popupFunc = function(geography, data){
 var drawLineChart = function(history){
   new Chartkick.LineChart("chart", history);
 };
+
+var drawArcs = function(map, countries){
+  var arcs = new Array();
+  for(var country in countries){
+    arcs.push({
+      origin: {
+        latitude: countries[country].lat,
+        longitude: countries[country].long
+      },
+      destination: {
+        latitude: 23.3554,
+        longitude: 120.4615
+      },
+      options: {
+        strokeWidth: 2,
+        strokeColor: 'rgba(100, 10, 200, 0.4)',
+        greatArc: true
+      }
+    });
+  }
+  map.arc(arcs, {strokeWidth: 1, arcSharpness: 0.3});
+};

@@ -63,12 +63,14 @@
           $.csv.toObjects(data).forEach(function(element, index){
             travelData[element.residence] = element;
           });
+          console.log(travelData);
           map = createMap();
           for(var country in travelData){
             var info = new Array();
             info[country] = { fillKey: "residence" };
             map.updateChoropleth(info);
           };
+          drawArcs(map, travelData);
           drawLineChart({
             2009: travelData["CHN"]["2009"],
             2010: travelData["CHN"]["2010"],
