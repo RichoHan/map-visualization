@@ -54,20 +54,19 @@
     <script type="text/javascript" src="static/js/index.js"></script>
     <script>
       var map, travelData;
+      var yearMin, yearMax;
       $.ajax({
         type: "GET",
         url: "static/data/travel_statistics.csv",
         dataType: "text",
         success: function(data) {
-          travelData = new Array();
-          $.csv.toObjects(data).forEach(function(element, index){
-            travelData[element.residence] = element;
-          });
-          console.log(travelData);
+          travelData = processData($.csv.toObjects(data));
           map = createMap();
+          yearMin = findYearMin(travelData, 2009);
+          yearMax = findYearMax(travelData, 2009);
           for(var country in travelData){
             var info = new Array();
-            info[country] = { fillKey: "residence" };
+            info[country] = "rgba(100, 10, 200, " + (0.2+travelData[country][2009]/yearMax) + ")";
             map.updateChoropleth(info);
           };
           drawArcs(map, travelData);

@@ -20,7 +20,7 @@ var createMap = function(){
 };
 
 var popupFunc = function(geography, data){
-  if(currentCountry!=geography.id){
+  if(currentCountry != geography.id && geography.id in travelData){
     currentCountry = geography.id;
     var history = {
       2009: travelData[geography.id]["2009"],
@@ -59,4 +59,30 @@ var drawArcs = function(map, countries){
     });
   }
   map.arc(arcs, {strokeWidth: 1, arcSharpness: 0.3});
+};
+
+var processData = function(data){
+  var result = new Array();
+  data.forEach(function(element, index){
+    result[element.residence] = element;
+  });
+  return result;
+};
+
+var findYearMax = function(data, year){
+  var max = 0;
+  for(var country in data){
+    var num = parseInt(data[country][year]);
+    max = num>max ? num : max;
+  }
+  return max;
+};
+
+var findYearMin = function(data, year){
+  var min = Infinity;
+  for(var country in data){
+    var num = parseInt(data[country][year]);
+    min = num<min ? num : min;
+  }
+  return min;
 };
