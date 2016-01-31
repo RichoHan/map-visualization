@@ -60,3 +60,11 @@ var drawArcs = function(map, countries){
   }
   map.arc(arcs, {strokeWidth: 1, arcSharpness: 0.3});
 };
+
+var processData = function(data){
+  var result = new Array();
+  data.forEach(function(element, index){
+    result[element.residence] = element;
+  });
+  return result;
+};

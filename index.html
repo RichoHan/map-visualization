@@ -59,10 +59,7 @@
         url: "static/data/travel_statistics.csv",
         dataType: "text",
         success: function(data) {
-          travelData = new Array();
-          $.csv.toObjects(data).forEach(function(element, index){
-            travelData[element.residence] = element;
-          });
+          travelData = processData($.csv.toObjects(data));
           console.log(travelData);
           map = createMap();
           for(var country in travelData){
