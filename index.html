@@ -44,7 +44,38 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script type="text/javascript" src="static/js/datamaps.world.min.js"></script>
 
+    <!-- Data Processing JavaScript -->
+    <script type="text/javascript" src="static/js/jquery.csv.min.js"></script>
+
     <!-- Customized JavaScript -->
+    <script>
+      var map = new Datamap({
+        element: document.getElementById("worldmap"),
+        fills: {
+          defaultFill: "#ABDDA4",
+          residence: "#fa0fa0",
+          TWN: "#0000FF"
+        },
+        data: {
+          TWN: { fillKey: "TWN" }
+        }
+      });
+
+      var travelData;
+      $.ajax({
+        type: "GET",
+        url: "static/data/travel_statistics.csv",
+        dataType: "text",
+        success: function(data) {
+          travelData = $.csv.toObjects(data);
+          travelData.forEach(function(element, index){
+            var info = new Array();
+            info[element.residence] = { fillKey: "residence" };
+            map.updateChoropleth(info);
+          });
+        }
+      });
+    </script>
     <script type="text/javascript" src="static/js/index.js"></script>
 
   </body>
