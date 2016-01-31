@@ -1,0 +1,14 @@
+body {
+  padding-top: 50px;
+}
+
+.container {
+  text-align: center;
+}
+
+#worldmap {
+  position: relative;
+  margin: 0px auto;
+  width: 750px;
+  height: 400px;
+}
