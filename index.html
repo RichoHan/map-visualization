@@ -32,7 +32,7 @@
     <div class="container">
 
       <div id="worldmap"></div>
-      <div id="chart-1" style="height: 300px;"></div>
+      <div id="chart" style="height: 300px;"></div>
 
     </div><!-- /.container -->
 
@@ -69,6 +69,14 @@
             info[country] = { fillKey: "residence" };
             map.updateChoropleth(info);
           };
+          drawLineChart({
+            2009: travelData["CHN"]["2009"],
+            2010: travelData["CHN"]["2010"],
+            2011: travelData["CHN"]["2011"],
+            2012: travelData["CHN"]["2012"],
+            2013: travelData["CHN"]["2013"],
+            2014: travelData["CHN"]["2014"]
+          });
         }
       });
     </script>
