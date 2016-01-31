@@ -68,3 +68,21 @@ var processData = function(data){
   });
   return result;
 };
+
+var findYearMax = function(data, year){
+  var max = 0;
+  for(var country in data){
+    var num = parseInt(data[country][year]);
+    max = num>max ? num : max;
+  }
+  return max;
+};
+
+var findYearMin = function(data, year){
+  var min = Infinity;
+  for(var country in data){
+    var num = parseInt(data[country][year]);
+    min = num<min ? num : min;
+  }
+  return min;
+};
