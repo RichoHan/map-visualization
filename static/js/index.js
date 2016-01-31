@@ -20,7 +20,7 @@ var createMap = function(){
 };
 
 var popupFunc = function(geography, data){
-  if(currentCountry!=geography.id){
+  if(currentCountry != geography.id && geography.id in travelData){
     currentCountry = geography.id;
     var history = {
       2009: travelData[geography.id]["2009"],
