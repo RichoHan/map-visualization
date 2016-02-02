@@ -5,6 +5,7 @@
     <title>Map Visualization</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel='stylesheet' />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.13/css/bootstrap-slider.min.css" rel='stylesheet' />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel='stylesheet' />
     <link href="static/index.css" rel='stylesheet' />
   </head>
   <body>
@@ -31,11 +32,24 @@
     </nav>
 
     <div class="container">
-      <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
-      <div id="worldmap"></div>
+      <div class="row">
+        <div class="col-md-8">
+          <div id="worldmap"></div>
+          <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
+        </div>
+        <div class="col-md-4">Twitter</div>
+      </div>
       <div id="chart" style="height: 300px;"></div>
 
     </div><!-- /.container -->
+
+    <nav class="navbar-inverse navbar-fixed-bottom" id="footer">
+      <div class="container">
+        <a class="lightlink fa fa-github fa-lg" target="_blank" href="https://github.com/RichoHan/map-visualization"> Github Link</a>
+        &nbsp;|&nbsp;
+        <a class="lightlink fa fa-table fa-lg" target="_blank" href="http://data.gov.tw/node/15453"> 資料來源：98年至103年來台旅客居住地統計</a>
+      </div>
+    </nav>
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -60,9 +74,7 @@
       var currentCountry = "CHN";
       var currentYear = 2009;
 
-      $("#slider").slider({
-        tooltip: "always"
-      });
+      $("#slider").slider();
 
       $("#slider").on("slide", function(slideEvt) {
         if(currentYear!=slideEvt.value){
