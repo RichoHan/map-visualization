@@ -39,7 +39,7 @@ var drawLineChart = function(country, history){
   data = [
     {"name": country, "data": history}
   ];
-  new Chartkick.LineChart("chart", data);
+  new Chartkick.LineChart("chart", data, {"min": 0});
 };
 
 var drawArcs = function(map, countries){
@@ -114,11 +114,7 @@ var updateMap = function(map, travelData, year){
   yearMin = findYearMin(travelData, year);
   yearMax = findYearMax(travelData, year);
   var info = new Array();
-  for(var country in travelData){
-    if(travelData[country][year] == '-')
-      info[country] = { fillKey: 'defaultFill' };
-    else
-      info[country] = "rgba(0, 102, 204, " + (0.2+travelData[country][year]/yearMax) + ")";
-  };
+  for(var country in travelData)
+    info[country] = "rgba(0, 102, 204, " + (0.2+travelData[country][year]/yearMax) + ")";
   map.updateChoropleth(info);
 };
