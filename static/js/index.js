@@ -30,13 +30,16 @@ var popupFunc = function(geography, data){
       2013: travelData[geography.id]["2013"],
       2014: travelData[geography.id]["2014"]
     };
-    drawLineChart(history);
+    drawLineChart(geography.properties.name, history);
   }
   return '<div class="hoverinfo">' + geography.properties.name
 };
 
-var drawLineChart = function(history){
-  new Chartkick.LineChart("chart", history);
+var drawLineChart = function(country, history){
+  data = [
+    {"name": country, "data": history}
+  ];
+  new Chartkick.LineChart("chart", data);
 };
 
 var drawArcs = function(map, countries){
