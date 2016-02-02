@@ -113,9 +113,12 @@ var findYearMin = function(data, year){
 var updateMap = function(map, travelData, year){
   yearMin = findYearMin(travelData, year);
   yearMax = findYearMax(travelData, year);
+  var info = new Array();
   for(var country in travelData){
-    var info = new Array();
-    info[country] = "rgba(100, 10, 200, " + (0.2+travelData[country][year]/yearMax) + ")";
-    map.updateChoropleth(info);
+    if(travelData[country][year] == '-')
+      info[country] = { fillKey: 'defaultFill' };
+    else
+      info[country] = "rgba(0, 102, 204, " + (0.2+travelData[country][year]/yearMax) + ")";
   };
+  map.updateChoropleth(info);
 };
