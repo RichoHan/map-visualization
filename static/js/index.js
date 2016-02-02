@@ -1,5 +1,3 @@
-var currentCountry = "CHN";
-
 var createMap = function(){
   return new Datamap({
     element: document.getElementById("worldmap"),
@@ -88,4 +86,14 @@ var findYearMin = function(data, year){
     min = num<min ? num : min;
   }
   return min;
+};
+
+var updateMap = function(map, travelData, year){
+  yearMin = findYearMin(travelData, year);
+  yearMax = findYearMax(travelData, year);
+  for(var country in travelData){
+    var info = new Array();
+    info[country] = "rgba(100, 10, 200, " + (0.2+travelData[country][year]/yearMax) + ")";
+    map.updateChoropleth(info);
+  };
 };

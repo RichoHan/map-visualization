@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Map Visualization</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel='stylesheet' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.13/css/bootstrap-slider.min.css" rel='stylesheet' />
     <link href="static/index.css" rel='stylesheet' />
   </head>
   <body>
@@ -30,7 +31,7 @@
     </nav>
 
     <div class="container">
-
+      <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
       <div id="worldmap"></div>
       <div id="chart" style="height: 300px;"></div>
 
@@ -49,12 +50,27 @@
     <script type="text/javascript" src="static/js/jquery.csv.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js" type="text/javascript"></script>
     <script type="text/javascript" src="static/js/chartkick.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.0.13/bootstrap-slider.min.js" type="text/javascript"></script>
 
     <!-- Customized JavaScript -->
     <script type="text/javascript" src="static/js/index.js"></script>
     <script>
       var map, travelData;
       var yearMin, yearMax;
+      var currentCountry = "CHN";
+      var currentYear = 2009;
+
+      $("#slider").slider({
+        tooltip: "always"
+      });
+
+      $("#slider").on("slide", function(slideEvt) {
+        if(currentYear!=slideEvt.value){
+          currentYear = slideEvt.value;
+          updateMap(map, travelData, currentYear);
+        }
+      });
+
       $.ajax({
         type: "GET",
         url: "static/data/travel_statistics.csv",
@@ -62,13 +78,7 @@
         success: function(data) {
           travelData = processData($.csv.toObjects(data));
           map = createMap();
-          yearMin = findYearMin(travelData, 2009);
-          yearMax = findYearMax(travelData, 2009);
-          for(var country in travelData){
-            var info = new Array();
-            info[country] = "rgba(100, 10, 200, " + (0.2+travelData[country][2009]/yearMax) + ")";
-            map.updateChoropleth(info);
-          };
+          updateMap(map, travelData, 2009);
           drawArcs(map, travelData);
           drawLineChart("China", {
             2009: travelData["CHN"]["2009"],
