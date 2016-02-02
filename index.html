@@ -31,8 +31,13 @@
     </nav>
 
     <div class="container">
-      <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
-      <div id="worldmap"></div>
+      <div class="row">
+        <div class="col-md-8">
+          <div id="worldmap"></div>
+          <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
+        </div>
+        <div class="col-md-4">Twitter</div>
+      </div>
       <div id="chart" style="height: 300px;"></div>
 
     </div><!-- /.container -->
@@ -60,9 +65,7 @@
       var currentCountry = "CHN";
       var currentYear = 2009;
 
-      $("#slider").slider({
-        tooltip: "always"
-      });
+      $("#slider").slider();
 
       $("#slider").on("slide", function(slideEvt) {
         if(currentYear!=slideEvt.value){
