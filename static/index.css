@@ -12,3 +12,11 @@ body {
   width: 550px;
   height: 400px;
 }
+
+#footer{
+  height: 25px;
+}
+
+.lightlink{
+  color: white;
+}
