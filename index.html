@@ -78,15 +78,15 @@
         success: function(data) {
           travelData = processData($.csv.toObjects(data));
           map = createMap();
-          updateMap(map, travelData, 2009);
+          updateMap(map, travelData, currentYear);
           drawArcs(map, travelData);
           drawLineChart("China", {
-            2009: travelData["CHN"]["2009"],
-            2010: travelData["CHN"]["2010"],
-            2011: travelData["CHN"]["2011"],
-            2012: travelData["CHN"]["2012"],
-            2013: travelData["CHN"]["2013"],
-            2014: travelData["CHN"]["2014"]
+            2009: travelData[currentCountry]["2009"],
+            2010: travelData[currentCountry]["2010"],
+            2011: travelData[currentCountry]["2011"],
+            2012: travelData[currentCountry]["2012"],
+            2013: travelData[currentCountry]["2013"],
+            2014: travelData[currentCountry]["2014"]
           });
         }
       });
