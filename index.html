@@ -79,7 +79,7 @@
           travelData = processData($.csv.toObjects(data));
           map = createMap();
           updateMap(map, travelData, currentYear);
-          drawArcs(map, travelData);
+          // drawArcs(map, travelData);
           drawLineChart("China", {
             2009: travelData[currentCountry]["2009"],
             2010: travelData[currentCountry]["2010"],

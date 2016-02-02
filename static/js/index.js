@@ -1,6 +1,7 @@
 var createMap = function(){
   return new Datamap({
     element: document.getElementById("worldmap"),
+    projection: 'mercator',
     geographyConfig: {
       highlightBorderColor: '#bada55',
       popupTemplate: popupFunc,
@@ -28,6 +29,7 @@ var popupFunc = function(geography, data){
       2013: travelData[geography.id]["2013"],
       2014: travelData[geography.id]["2014"]
     };
+    drawArc(map, travelData[geography.id]);
     drawLineChart(geography.properties.name, history);
   }
   return '<div class="hoverinfo">' + geography.properties.name
@@ -62,10 +64,30 @@ var drawArcs = function(map, countries){
   map.arc(arcs, {strokeWidth: 1, arcSharpness: 0.3});
 };
 
+var drawArc = function(map, country){
+  var arcs = new Array();
+  arcs.push({
+    origin: {
+      latitude: country.lat,
+      longitude: country.long
+    },
+    destination: {
+      latitude: 23.3554,
+      longitude: 120.4615
+    },
+    options: {
+      strokeWidth: 2,
+      strokeColor: 'rgba(100, 10, 200, 0.4)',
+      greatArc: true
+    }
+    });
+  map.arc(arcs, {strokeWidth: 1, arcSharpness: 0.3});
+};
+
 var processData = function(data){
   var result = new Array();
   data.forEach(function(element, index){
-    result[element.residence] = element;
+    result[element.code] = element;
   });
   return result;
 };
