@@ -8,7 +8,7 @@ var createMap = function(){
       highlightBorderWidth: 3
     },
     fills: {
-      defaultFill: "#ABDDA4",
+      defaultFill: "#CBE2C6",
       residence: "#fa0fa0",
       TWN: "#0000FF"
     },
@@ -115,6 +115,6 @@ var updateMap = function(map, travelData, year){
   yearMax = findYearMax(travelData, year);
   var info = new Array();
   for(var country in travelData)
-    info[country] = "rgba(0, 102, 204, " + (0.2+travelData[country][year]/yearMax) + ")";
+    info[country] = "rgba(3, 110, 186, " + (0.2+travelData[country][year]/yearMax) + ")";
   map.updateChoropleth(info);
 };
