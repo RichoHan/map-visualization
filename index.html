@@ -25,11 +25,29 @@
         </div><!--/span-->
 
         <div class="col-sm-9 col-md-10 main">
-          <div id="worldmap"></div>
-          <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
+
           <div class="row">
-            <div class="col-md-4">
+            <div class="dots">
+              <img src="./static/img/dot-02.png"/ width="20">
+              <img src="./static/img/dot-03.png"/ width="20">
+              <img src="./static/img/dot-04.png"/ width="20">&nbsp&nbsp&nbsp&nbsp訪客來台比例，深淺為比例排序</br>
+              <img src="./static/img/dot-01.png"/ width="20">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp選取國家</br>
+              <img src="./static/img/dot-05.png"/ width="20">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp無數據顯示
             </div>
+            <div id="worldmap"></div>
+            <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <span id="nation"></span>
+              <span id="data"></span>
+            </div>
+              <div class="col-md-2">
+                <div id="circle">
+                  <img src="./static/img/circle.png" />
+                </div>
+                <div id="total_visitors"></div>
+              </div>
             <div class="col-md-8">
               <div id="chart" style="height: 250px;"></div>
             </div>
