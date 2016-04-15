@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(247, 247, 247);
+  background-color: #C7CCCF;
 }
 
 .container {
@@ -9,8 +9,8 @@ body {
 #worldmap {
   position: relative;
   margin: 0px auto;
-  width: 650px;
-  height: 450px;
+  width: 600px;
+  height: 480px;
 }
 
 #twitter{
@@ -18,7 +18,8 @@ body {
 }
 
 #footer{
-  height: 25px;
+  height: 35px;
+  background-color: #036EB8;
 }
 
 .lightlink{
@@ -51,6 +52,7 @@ body {
   text-align: center;
   margin-top: -105px;
   z-index: -1;
+  color: #036EB8;
 }
 
 .dots{
@@ -90,16 +92,54 @@ body {
 
 /* Sidebar navigation */
 .nav-sidebar {
-  background-color: #f5f5f5;
+  background-color: #C7CCCF;
   margin-right: -15px;
   margin-bottom: 20px;
   margin-left: -15px;
 }
-.nav-sidebar > li > a {
-  padding-right: 20px;
-  padding-left: 20px;
+
+.sidebar-brand{
+  background-color: #036EB8;
+  color: #FFF;
+  font-size: 24px;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
 }
+
+.sidebar-brand  > .subtitle{
+  color: #C7CCCF;
+  font-size: 16px;
+}
+
+.nav-sidebar > li > a {
+  padding: 10px 20px 10px 30px;
+  color: #888889;
+  font-size: 20px;
+}
+
+.nav-sidebar > li > a  > .subtitle{
+  font-size: 16px;
+}
+
 .nav-sidebar > .active > a {
   color: #fff;
-  background-color: #036EB8;
+  background-color: #888889;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+  background-color: #F7F7F7;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
 }
