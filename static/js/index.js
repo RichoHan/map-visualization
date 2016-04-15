@@ -39,7 +39,8 @@ var drawLineChart = function(country, history){
   data = [
     {"name": country, "data": history}
   ];
-  new Chartkick.LineChart("chart", data, {"min": 0});
+  new Chartkick.LineChart("chart", data, {"library": {"backgroundColor": "#F7F7F7"}, "min": 0, "colors": ["#036EB8"]});
+
 };
 
 var drawArcs = function(map, countries){
