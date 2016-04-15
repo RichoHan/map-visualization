@@ -31,6 +31,14 @@ var popupFunc = function(geography, data){
     };
     drawArc(map, travelData[geography.id]);
     drawLineChart(geography.properties.name, history);
+    $('#nation').html("<h3 class='nation_title'>" + geography.properties.name + "</h3>");
+    $('#data').empty();
+    $('#data').append("<li><span class='st'>2009</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2009"] + "</li>");
+    $('#data').append("<li><span class='st'>2010</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2010"] + "</li>");
+    $('#data').append("<li><span class='st'>2011</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2011"] + "</li>");
+    $('#data').append("<li><span class='st'>2012</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2012"] + "</li>");
+    $('#data').append("<li><span class='st'>2013</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2013"] + "</li>");
+    $('#data').append("<li><span class='st'>2014</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2014"] + "</li>");
   }
   return '<div class="hoverinfo">' + geography.properties.name
 };

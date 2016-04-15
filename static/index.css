@@ -25,7 +25,17 @@ body {
   color: white;
 }
 
+.st{
+  color: #036EB8;
+}
 
+.nation_title{
+  color: #036EB8;
+}
+
+#data{
+  line-height: 2;
+}
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -69,5 +79,5 @@ body {
 }
 .nav-sidebar > .active > a {
   color: #fff;
-  background-color: #428bca;
+  background-color: #036EB8;
 }
