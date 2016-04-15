@@ -52,6 +52,12 @@ body {
   margin-top: -105px;
   z-index: -1;
 }
+
+.dots{
+  float: left;
+  margin-top: 300px;
+}
+
 /*
  * Off Canvas
  * --------------------------------------------------
