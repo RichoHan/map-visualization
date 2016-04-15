@@ -9,8 +9,8 @@ body {
 #worldmap {
   position: relative;
   margin: 0px auto;
-  width: 550px;
-  height: 450px;
+  width: 600px;
+  height: 480px;
 }
 
 #twitter{
@@ -18,7 +18,8 @@ body {
 }
 
 #footer{
-  height: 25px;
+  height: 35px;
+  background-color: #036EB8;
 }
 
 .lightlink{
