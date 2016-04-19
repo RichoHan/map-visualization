@@ -33,12 +33,12 @@ var popupFunc = function(geography, data){
     drawLineChart(geography.properties.name, history);
     $('#nation').html("<h3 class='nation_title'>" + geography.properties.name + "</h3>");
     $('#data').empty();
-    $('#data').append("<li><span class='st'>2009</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2009"] + "人</li>");
-    $('#data').append("<li><span class='st'>2010</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2010"] + "人</li>");
-    $('#data').append("<li><span class='st'>2011</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2011"] + "人</li>");
-    $('#data').append("<li><span class='st'>2012</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2012"] + "人</li>");
-    $('#data').append("<li><span class='st'>2013</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2013"] + "人</li>");
-    $('#data').append("<li><span class='st'>2014</span>&nbsp&nbsp&nbsp&nbsp" + travelData[geography.id]["2014"] + "人</li>");
+    $('#data').append("<li><span class='st'>2009</span>&nbsp&nbsp&nbsp&nbsp" + (history['2009']==-1 ? '無資料' : history['2009']+"人") + "</li>");
+    $('#data').append("<li><span class='st'>2010</span>&nbsp&nbsp&nbsp&nbsp" + history['2010'] + "人</li>");
+    $('#data').append("<li><span class='st'>2011</span>&nbsp&nbsp&nbsp&nbsp" + history['2011'] + "人</li>");
+    $('#data').append("<li><span class='st'>2012</span>&nbsp&nbsp&nbsp&nbsp" + history['2012'] + "人</li>");
+    $('#data').append("<li><span class='st'>2013</span>&nbsp&nbsp&nbsp&nbsp" + history['2013'] + "人</li>");
+    $('#data').append("<li><span class='st'>2014</span>&nbsp&nbsp&nbsp&nbsp" + history['2014'] + "人</li>");
     var total = parseInt(travelData[geography.id]["2009"])+
       parseInt(travelData[geography.id]["2010"])+
       parseInt(travelData[geography.id]["2011"])+
