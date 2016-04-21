@@ -1,13 +1,21 @@
 body {
   background-color: #C7CCCF;
+  min-width: 1440px;
+  width: auto !important;  /* Firefox will set width as auto */
 }
 
 .container {
   text-align: center;
 }
 
+.outer_container{
+  position: absolute;
+  left: 50%;
+}
+
 #worldmap {
   position: relative;
+  left: -50%;
   margin: 0px auto;
   width: 600px;
   height: 480px;
@@ -60,6 +68,9 @@ body {
   margin-top: 300px;
 }
 
+.upper_main{
+  min-height: 480px;
+}
 /*
  * Off Canvas
  * --------------------------------------------------
