@@ -25,7 +25,7 @@
         </div><!--/span-->
 
         <div class="col-sm-9 col-md-10 main">
-          <div class="row">
+          <div class="row upper_main">
             <div class="dots">
               <img src="./static/img/dot-02.png"/ width="20">
               <img src="./static/img/dot-03.png"/ width="20">
@@ -33,7 +33,9 @@
               <img src="./static/img/dot-01.png"/ width="20">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp選取國家</br>
               <img src="./static/img/dot-05.png"/ width="20">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp無數據顯示
             </div>
-            <div id="worldmap"></div>
+            <div class="outer_container">
+              <div id="worldmap"></div>
+            </div>
             <!-- <input id="slider" type="text" data-slider-min="2009" data-slider-max="2014" data-slider-step="1" data-slider-value="2009"/> -->
           </div>
           <div class="row">
@@ -88,6 +90,8 @@
       var currentYear = 2009;
 
       $("#slider").slider();
+      // $("#worldmap").css("width", $("#worldmap").parents().width()/2);
+      // console.log($("body").width());
 
       $("#slider").on("slide", function(slideEvt) {
         if(currentYear!=slideEvt.value){
