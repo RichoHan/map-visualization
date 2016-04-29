@@ -5,7 +5,7 @@ var createMap = function(){
     geographyConfig: {
       highlightBorderColor: '#bada55',
       popupTemplate: popupFunc,
-      highlightBorderWidth: 3
+      highlightBorderWidth: 1
     },
     fills: {
       defaultFill: "#CBE2C6",

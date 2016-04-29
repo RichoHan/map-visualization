@@ -1,0 +1,22 @@
+body {
+  overflow-y: hidden;
+}
+
+/*
+* Project Description
+*/
+
+.description{
+  min-height: 800px;
+}
+
+.description > h3{
+  color: #888889;
+}
+
+.description > p{
+  color: #3C3C3C;
+  font-size: 18px;
+  width: 600px;
+  line-height: 30px;
+}
