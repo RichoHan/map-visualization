@@ -116,18 +116,21 @@ body {
   color: #FFF;
   font-size: 24px;
   text-align: center;
-  padding: 20px 20px 20px 20px;
+  padding: 15px 20px 15px 20px;
+  line-height: 25px;
 }
 
 .sidebar-brand  > .subtitle{
   color: #C7CCCF;
   font-size: 16px;
+  line-height: 10px;
 }
 
 .nav-sidebar > li > a {
   padding: 10px 20px 10px 30px;
   color: #888889;
   font-size: 20px;
+  line-height: 20px;
 }
 
 .nav-sidebar > li > a  > .subtitle{
