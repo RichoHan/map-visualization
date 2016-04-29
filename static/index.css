@@ -2,6 +2,7 @@ body {
   background-color: #C7CCCF;
   min-width: 1440px;
   width: auto !important;  /* Firefox will set width as auto */
+  overflow-x: hidden;
 }
 
 .container {
